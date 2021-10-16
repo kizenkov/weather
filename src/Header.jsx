@@ -4,7 +4,11 @@ function Header({setLatLon}) {
     const [location, setLocation] = useState('')
     const [latLonName, setLatLonName] = useState(['Минск', 'BY'])
     const getWeather = (e) => {
-        e.preventDefault()
+        if (e.preventDefault) {
+            e.preventDefault()
+        } else {
+            e.returnValue = false
+        }
         fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=5&appid=e66c7ec7a8be8c638d481b97895d23ee`)
             .then(response => response.json())
             .then(response => {
@@ -12,9 +16,10 @@ function Header({setLatLon}) {
                 setLatLon([response[0].lat, response[0].lon])
             })
             .catch(err => {
-                console.log(err)
+                // console.log(err)
+                alert(err)
             })
-        setLocation('')
+        // setLocation('')
     }
 
     return <div className='header'>
