@@ -14,8 +14,8 @@ code {
     monospace;
 }
 
-.app {
-    padding: 20px;
+.header, .weather {
+    padding: 15px;
 }
 
 .wind img {
@@ -25,7 +25,7 @@ code {
 .current {
     border-radius: 20px;
     padding: 20px;
-    margin: 20px 0 20px;
+    margin: 0 0 20px;
     animation-duration: 25s;
     animation-name: move;
     animation-iteration-count: infinite;
@@ -72,13 +72,13 @@ code {
 
 input {
     width: 35vw;
-    min-width: 400px;
+    min-width: 300px;
     height: 40px;
     border-radius: 20px;
     background: white url(./findicon.png) 20px 15px no-repeat;
     background-size: 14px;
     padding-left: 44px;
-    font-size: 22px;
+    font-size: 20px;
     border: 1px solid #0064EB;
 }
 
