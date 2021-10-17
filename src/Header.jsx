@@ -29,6 +29,7 @@ function Header({setLatLon}) {
                    value={location}
                    onChange={(e) => setLocation(e.target.value)}
                    placeholder='Поиск местоположения'/>
+            <input type="submit" value="Submit"/>
         </form>
         <h4 className='inline'>{latLonName[0]}, {latLonName[1]}</h4>
     </div>
