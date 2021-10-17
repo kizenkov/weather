@@ -7,7 +7,7 @@ function Header({setLatLon}) {
     const [location, setLocation] = useState('')
     const getWeather = (e) => {
         e.preventDefault()
-        let url = `http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=5&appid=e66c7ec7a8be8c638d481b97895d23ee`
+        let url = `https://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=5&appid=e66c7ec7a8be8c638d481b97895d23ee`
         alert(url)
         axios.get(url)
             .then(response => {

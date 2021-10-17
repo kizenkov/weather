@@ -135,6 +135,7 @@ function Weather({data}) {
                                  style={{transform: `rotate(${+data.current.wind_deg}deg)`}}/>
                         </div>
                     </div>
+                    {data.current.wind_gust &&
                     <div className='inline'>
                         <div>
                             ПОРЫВЫ
@@ -142,7 +143,7 @@ function Weather({data}) {
                         <div className='wind description'>
                             до {Math.round(+data.current.wind_gust * 10) / 10} м/с
                         </div>
-                    </div>
+                    </div>}
                     <div className='inline'>
                         <div>
                             ВЛАЖНОСТЬ
