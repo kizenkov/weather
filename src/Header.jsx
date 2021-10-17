@@ -7,10 +7,10 @@ function Header({setLatLon}) {
     const getWeather = (e) => {
         e.preventDefault()
         fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=5&appid=e66c7ec7a8be8c638d481b97895d23ee`)
+            .then(response => response.json())
             .then(response => {
-                let data = response.data
-                setLatLonName([data[0].local_names.ru, data[0].country])
-                setLatLon([data[0].lat, data[0].lon])
+                setLatLonName([response[0].local_names.ru, response[0].country])
+                setLatLon([response[0].lat, response[0].lon])
             })
             .catch(err => {
                 console.log(err)
