@@ -7,14 +7,17 @@ function Header({setLatLon}) {
     const [location, setLocation] = useState('')
     const getWeather = (e) => {
         e.preventDefault()
-        axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=5&appid=e66c7ec7a8be8c638d481b97895d23ee`)
+        let url = `http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=5&appid=e66c7ec7a8be8c638d481b97895d23ee`
+        alert(url)
+        axios.get(url)
             .then(response => {
                 let data = response.data
                 setLatLonName([data[0].local_names.ru, data[0].country])
                 setLatLon([data[0].lat, data[0].lon])
             })
             .catch(err => {
-                console.log(err)
+                alert(err)
+                // console.log(err)
             })
         setLocation('')
     }
