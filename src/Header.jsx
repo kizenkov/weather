@@ -23,14 +23,14 @@ function Header({setLatLon}) {
     }
 
     return <div className='header'>
-        <form onSubmit={getWeather} className='inline'>
+        {/*<form onSubmit={getWeather} className='inline'>*/}
             <input type='text'
                    required
                    value={location}
                    onChange={(e) => setLocation(e.target.value)}
                    placeholder='Поиск местоположения'/>
-            <input type="submit" value="Submit"/>
-        </form>
+            <button onClick={getWeather}>send</button>
+        {/*</form>*/}
         <h4 className='inline'>{latLonName[0]}, {latLonName[1]}</h4>
     </div>
 }
