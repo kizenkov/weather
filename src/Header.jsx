@@ -1,9 +1,10 @@
-import {useState} from 'react'
+import {useRef, useState} from 'react'
 
 function Header({setLatLon}) {
 
     const [latLonName, setLatLonName] = useState(['Минск', 'BY'])
     const [location, setLocation] = useState('')
+    const locationField = useRef()
     const getWeather = (e) => {
         e.preventDefault()
         fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=5&appid=e66c7ec7a8be8c638d481b97895d23ee`)
@@ -16,12 +17,14 @@ function Header({setLatLon}) {
                 console.log(err)
             })
         setLocation('')
+        locationField.current['style'].autofocus = 'false'
     }
 
     return <div className='header'>
         <form onSubmit={getWeather} className='inline'>
             <input type='text'
                    required
+                   ref={locationField}
                    value={location}
                    onChange={(e) => setLocation(e.target.value)}
                    placeholder='Поиск местоположения'/>
