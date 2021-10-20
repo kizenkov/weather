@@ -17,7 +17,7 @@ function Header({setLatLon}) {
                 console.log(err)
             })
         setLocation('')
-        locationField.current['style'].autofocus = 'false'
+        locationField.current.blur()
     }
 
     return <div className='header'>
